@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "module": "ESNext", // Use ES modules
+      "moduleResolution": "Node",
+      "target": "ES2020", // Set your target JavaScript version
+      "outDir": "./dist", // Output directory for compiled JS files
+      "rootDir": "./src", // Source directory for TS files
+      "esModuleInterop": true, // Enable ES module interop
+      "strict": true, // Enable strict type-checking
+      "skipLibCheck": true // Skip library checks for faster compilation
+    },
+    "include": ["src/**/*.ts"], // Include all TS files in the src directory
+    "exclude": ["node_modules"]
+  }

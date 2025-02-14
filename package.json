@@ -1,0 +1,33 @@
+{
+  "name": "task-queue",
+  "version": "1.0.0",
+  "description": "Task Queue",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec ts-node --esm src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/byborh/task-queue.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/byborh/task-queue/issues"
+  },
+  "homepage": "https://github.com/byborh/task-queue#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.4",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ioredis": "^5.5.0"
+  }
+}
