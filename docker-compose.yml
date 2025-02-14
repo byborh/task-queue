@@ -1,2 +1,29 @@
 # Créer un docker compose qui permet de lancer tous mon application !
 # Lancer mon API et ma bdd Redis
+version: "3.8" # Version de Docker Compose (oui, je commente tout)
+
+services:
+  api:
+    build: . # Lancer l'image Dockerfile de mon API qui est déjà définie
+    container_name: my_api # Définir un nom pour le container
+    ports: # Exposer l'API sur le port 3000
+      - "3000:3000"
+    environment: # L'environnement de l'API
+      - NODE_ENV=development
+    depends_on: # Attendre donc le lancement total de redis avant d'être lancée
+      - redis
+    restart: unless-stopped # Redémarrer sauf en cas d'arrêt manuel
+
+  redis:
+    image: redis:latest # Récupérer l'image officielle de Redis
+    container_name: my_redis # Définir un nom de container
+    ports: # Exposer la bdd sur le port 6379
+      - "6379:6379"
+    volumes: # Les données seront persistantes
+      - redis_data:/data
+    command: ["redis-server", "--appendonly", "yes"] # Activation de la persistance
+
+
+volumes:
+  redis_data: # Persister les données Redis
+    driver: local # Permet de persister les données en sens propre
